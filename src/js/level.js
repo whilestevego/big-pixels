@@ -1,6 +1,9 @@
 import {actorChars, Player, Lava, Coin} from './actors.js';
 import Vector from './vector.js';
 
+/* Level Settings */
+const maxStep = 0.05;
+
 export default class Level {
   constructor(plan) {
     this.width = plan[0].length;
@@ -32,5 +35,48 @@ export default class Level {
 
   isFinished() {
     return this.status != null && this.finishDelay < 0
+  }
+
+  obstacleAt(pos, size) {
+    let xStart = Math.floor(pos.x);
+    let xEnd   = Math.ceil(pos.x + size.x);
+    let yStart = Math.floor(pos.x);
+    let yEnd   = Math.floor(pos.x + size.y);
+
+    if (xStart < 0 || xEnd > this.width || yStart < 0)
+      return "wall";
+    if (yEnd > this.height)
+      return "lava";
+
+    for (let y = yStart; y < yEnd; y++) {
+      for (let x = xStart; x < xEnd; x++) {
+        let fieldType = this.grid[y][x];
+        if (fieldType) return fieldType;
+      }
+    }
+  }
+
+  actorAt(actor) {
+    for (let i = 0; i < this.actors.length; i++) {
+      let other = this.actors[i];
+
+      if (
+        other != actor &&
+        actor.pos.x + actor.size.x > other.pos.x &&
+        actor.pos.x < other.pos.x + other.size.x &&
+        actor.pos.y + actor.size.y > other.pos.y &&
+        actor.pos.y < other.pos.y + other.size.y
+      ) return other;
+    }
+  }
+
+  animate(step, keys) {
+    if (this.status != null) this.finishDelay -= step;
+
+    while(step > 0) {
+      let thisStep = Math.min(step, maxStep);
+      this.actors.forEach(actor => actor.act(thisStep, this, keys));
+      step -= thisStep;
+    }
   }
 }
