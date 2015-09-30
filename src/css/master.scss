@@ -1,7 +1,35 @@
+// Colors
+$backdrop: rgb(52, 166, 251);
+$lava: rgb(255, 100, 100);
+$wall: white;
+$coin: rgb(241, 229, 89);
+$player: rgb(241, 229, 89);
+
 html {
   body {
     font-size: 100%;
     background: url(../img/repeater.jpg);
     margin: 0 0;
+  }
+
+  .background {
+    background: $backdrop;
+    table-layout: fixed;
+    border-spacing: 0;
+
+    .td { padding: 0 }
+  }
+
+  .lava { background: $lava }
+  .wall { background: $wall }
+  .actor { position: absolute; }
+  .coun { background: $coin }
+
+  .lost .player {
+    background: rgb(160, 64, 64);
+  }
+
+  .won .player {
+    box-shadow: -4px -7px 8px white, 4px -7px 8px white;
   }
 }

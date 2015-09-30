@@ -2,6 +2,7 @@
 import '../css/master.scss';
 
 import Level from './level.js';
+import DOMDisplay from './dom-display.js';
 
 var simpleLevelPlan = [
   "                      ",
@@ -16,4 +17,4 @@ var simpleLevelPlan = [
 ];
 
 var simpleLevel = new Level(simpleLevelPlan);
-console.log(simpleLevel.width, "by", simpleLevel.height);
+var display = new DOMDisplay(document.body, simpleLevel);
