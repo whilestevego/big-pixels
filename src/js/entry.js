@@ -4,22 +4,8 @@ import '../css/master.scss';
 import Level from './level.js';
 import DOMDisplay from './dom-display.js';
 import {arrowCodes, trackKeys, runAnimation} from './helpers.js';
+import {MAPS} from './maps.js';
 
-var simpleLevelPlan = [
-  "                      ",
-  "                      ",
-  "  x              = x  ",
-  "  x         o o    x  ",
-  "  x @      xxxxx   x  ",
-  "  xxxxx            x  ",
-  "      x!!!!!!!!!!!!x  ",
-  "      xxxxxxxxxxxxxx  ",
-  "                      ",
-  "                      ",
-  "                      "
-];
-
-var simpleLevel = new Level(simpleLevelPlan);
 var arrows = trackKeys(arrowCodes);
 
 function runLevel(level, Display, andThen) {
@@ -52,4 +38,4 @@ function runGame(plans, Display) {
   startLevel(0);
 }
 
-runGame([simpleLevelPlan], DOMDisplay);
+runGame(MAPS, DOMDisplay);
