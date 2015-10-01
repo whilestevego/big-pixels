@@ -76,7 +76,7 @@ export class Lava {
       case "|":
         this.speed = new Vector(0, 2);
         break;
-      case "=":
+      case "v":
         this.speed = new Vector(0, 3);
         this.repeatPos = pos;
         break;
