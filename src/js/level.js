@@ -45,8 +45,8 @@ export default class Level {
   obstacleAt(pos, size) {
     let xStart = Math.floor(pos.x);
     let xEnd   = Math.ceil(pos.x + size.x);
-    let yStart = Math.floor(pos.x);
-    let yEnd   = Math.floor(pos.x + size.y);
+    let yStart = Math.floor(pos.y);
+    let yEnd   = Math.ceil(pos.y + size.y);
 
     if (xStart < 0 || xEnd > this.width || yStart < 0)
       return "wall";

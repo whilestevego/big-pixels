@@ -19,7 +19,7 @@ export default class DOMDisplay {
   drawActors() {
     let wrap = elt("div");
     this.level.actors.forEach((actor) => {
-      let rect = wrap.appendChild(elt("div", "actor" + actor.type));
+      let rect = wrap.appendChild(elt("div", "actor " + actor.type));
 
       rect.style.width  = actor.size.x * scale + "px";
       rect.style.height = actor.size.y * scale + "px";

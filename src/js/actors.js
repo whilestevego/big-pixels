@@ -22,7 +22,7 @@ export class Player {
     if (keys.right) this.speed.x += playerXSpeed;
 
     let motion = new Vector(this.speed.x * step, 0);
-    let newPost = this.pos.plus(motion);
+    let newPos = this.pos.plus(motion);
     let obstacle = level.obstacleAt(newPos, this.size);
 
     if (obstacle)
