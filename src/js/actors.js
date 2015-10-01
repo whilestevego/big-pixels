@@ -1,3 +1,4 @@
+import Vector from './vector.js';
 export const actorChars = {
   "@": Player,
   "o": Coin,
