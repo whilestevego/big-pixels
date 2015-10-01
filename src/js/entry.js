@@ -24,15 +24,25 @@ function runLevel(level, Display, andThen) {
 }
 
 function runGame(plans, Display) {
+  let lives = 3;
+
   function startLevel(n) {
 
     runLevel(new Level(plans[n]), Display, (status) => {
-      if (status == "lost")
-        startLevel(n);
-      else if (n < plans.length - 1)
+      if (status == "lost") {
+        console.log("Lives left: ", --lives);
+        if (!lives) {
+          lives = 3;
+          console.log("Lives left: ", lives);
+          startLevel(0);
+        } else {
+          startLevel(n);
+        }
+      } else if (n < plans.length - 1) {
         startLevel(n + 1);
-      else
+      } else {
         console.log("You win!");
+      }
     });
   }
   startLevel(0);
