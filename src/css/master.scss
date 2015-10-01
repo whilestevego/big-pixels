@@ -12,9 +12,11 @@ html {
 
     .game {
       overflow: hidden;
-      max-width: 600px;
+      max-width: 800px;
       max-height: 450px;
       position: relative;
+
+      margin: 10vh auto;
     }
 
     .background {

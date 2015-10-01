@@ -53,7 +53,8 @@ export default class DOMDisplay {
   scrollPlayerIntoView() {
     let width = this.wrap.clientWidth;
     let height = this.wrap.clientHeight;
-    let margin = width / 3;
+    let marginX = width / 3;
+    let marginY = height / 2;
 
     //The Viewport
     let left = this.wrap.scrollLeft, right = left + width;
@@ -62,15 +63,15 @@ export default class DOMDisplay {
     let player = this.level.player;
     let center = player.pos.plus(player.size.times(0.5)).times(scale)
 
-    if (center.x < left + margin)
-      this.wrap.scrollLeft = center.x - margin;
-    else if (center.x > right - margin)
-      this.wrap.scrollLeft = center.x + margin - width;
+    if (center.x < left + marginX)
+      this.wrap.scrollLeft = center.x - marginX;
+    else if (center.x > right - marginX)
+      this.wrap.scrollLeft = center.x + marginX - width;
 
-    if (center.y < top + margin)
-      this.wrap.scrollTop = center.y - margin;
-    else if (center.y > bottom - margin)
-      this.wrap.scrollTop = center.y + margin - height;
+    if (center.y < top + marginY)
+      this.wrap.scrollTop = center.y - marginY;
+    else if (center.y > bottom - marginY)
+      this.wrap.scrollTop = center.y + marginY - height;
   }
 
   clear() {
