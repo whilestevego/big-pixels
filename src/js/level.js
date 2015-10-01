@@ -1,8 +1,13 @@
-import {actorChars, Player, Lava, Coin} from './actors.js';
+import {Player, Lava, Coin} from './actors.js';
 import Vector from './vector.js';
 
 /* Level Settings */
 const maxStep = 0.05;
+const actorChars = {
+  "@": Player,
+  "o": Coin,
+  "=": Lava, "|": Lava, "v": Lava
+}
 
 export default class Level {
   constructor(plan) {

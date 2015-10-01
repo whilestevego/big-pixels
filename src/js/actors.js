@@ -1,9 +1,4 @@
 import Vector from './vector.js';
-export const actorChars = {
-  "@": Player,
-  "o": Coin,
-  "=": Lava, "|": Lava, "v": Lava
-}
 
 /* Player Settings */
 const playerXSpeed = 7;
