@@ -7,29 +7,36 @@ $player: rgb(241, 229, 89);
 
 html {
   body {
-    font-size: 100%;
-    background: url(../img/repeater.jpg);
-    margin: 0 0;
-  }
+    margin: 0;
+    padding: 0;
 
-  .background {
-    background: $backdrop;
-    table-layout: fixed;
-    border-spacing: 0;
+    .game {
+      overflow: hidden;
+      max-width: 600px;
+      max-height: 450px;
+      position: relative;
+    }
 
-    .td { padding: 0 }
-  }
+    .background {
+      background: $backdrop;
+      table-layout: fixed;
+      border-spacing: 0;
 
-  .lava { background: $lava }
-  .wall { background: $wall }
-  .actor { position: absolute; }
-  .coun { background: $coin }
+      td { padding: 0 }
+    }
 
-  .lost .player {
-    background: rgb(160, 64, 64);
-  }
+    .lava   { background: $lava }
+    .wall   { background: $wall }
+    .actor  { position: absolute; }
+    .coin   { background: $coin }
+    .player { background: pink }
 
-  .won .player {
-    box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+    .lost .player {
+      background: rgb(160, 64, 64);
+    }
+
+    .won .player {
+      box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+    }
   }
 }
