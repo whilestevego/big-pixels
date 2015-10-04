@@ -4,7 +4,7 @@ import '../css/master.scss';
 import Level from './level.js';
 import DOMDisplay from './dom-display.js';
 import {arrowCodes, trackKeys, runAnimation} from './helpers.js';
-import {MAPS} from './maps.js';
+import Maps from './maps.js';
 
 var arrows = trackKeys(arrowCodes);
 
@@ -48,4 +48,4 @@ function runGame(plans, Display) {
   startLevel(0);
 }
 
-runGame(MAPS, DOMDisplay);
+runGame(Maps, DOMDisplay);

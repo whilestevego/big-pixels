@@ -1,4 +1,4 @@
-export const MAPS = [
+const Maps = [
   [
     "                                                                                ",
     "                                                                                ",
@@ -140,3 +140,5 @@ export const MAPS = [
     "                                                                                                              "
   ]
 ]
+
+export default Maps;
