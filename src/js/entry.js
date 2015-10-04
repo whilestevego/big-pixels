@@ -3,16 +3,34 @@ import '../css/master.scss';
 
 import Level from './level.js';
 import DOMDisplay from './dom-display.js';
-import {arrowCodes, trackKeys, runAnimation} from './helpers.js';
+import KeyTracker from './key-tracker.js';
 import Maps from './maps.js';
 
-var arrows = trackKeys(arrowCodes);
+KeyTracker.getInstance().start();
+
+export function runAnimation(frameFunc) {
+  let lastTime = null;
+
+  function frame(time) {
+    let stop = false;
+
+    if (lastTime != null) {
+      let timeStep = Math.min(time - lastTime, 100) / 1000;
+      stop = frameFunc(timeStep) === false;
+    }
+
+    lastTime = time;
+    if (!stop) requestAnimationFrame(frame);
+  }
+
+  requestAnimationFrame(frame);
+}
 
 function runLevel(level, Display, andThen) {
   let display = new Display(document.body, level);
 
   runAnimation((step) => {
-    level.animate(step, arrows);
+    level.animate(step, KeyTracker.getInstance().pressed);
     display.drawFrame(step);
 
     if (level.isFinished()) {
