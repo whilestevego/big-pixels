@@ -4,13 +4,16 @@
   "description": "A basic platformer game using the DOM to render levels.",
   "private": true,
   "scripts": {
+    "start": "npm run webpack-server & npm run web-server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack-server": "webpack-dev-server --hot --progress --colors",
+    "build": "webpack -p --progress --color --optimize-minimize --config ./webpack.production.config.js",
     "web-server": "http-server -p 3000 .",
-    "start": "npm run webpack-server & npm run web-server"
+    "webpack-server": "webpack-dev-server --hot --progress --colors"
   },
   "keywords": [
-    "game", "platformer", "es6"
+    "game",
+    "platformer",
+    "es6"
   ],
   "author": "Steve Godin",
   "devDependencies": {

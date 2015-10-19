@@ -7,12 +7,8 @@ var buildPath = Path.resolve(__dirname, 'build');
 var mainPath = Path.resolve(__dirname, 'src', 'js', 'main.js');
 
 var config = {
-  devtool: 'source-map',
-  entry: [
-    'webpack/hot/only-dev-server',
-    'webpack-dev-server/client?http://localhost:8080',
-    mainPath
-  ],
+  devtool: 'eval',
+  entry: mainPath,
   output: {
     path: buildPath,
     filename: 'bundle.js',
@@ -27,7 +23,7 @@ var config = {
           'style',
           'css',
           'autoprefixer?browsers=last 3 versions',
-          'sass?outputStyle=expanded&sourceComments=true'
+          'sass?outputStyle=compressed'
         ]
       }, {
         test: /\.(jpe?g|png|gif|svg)$/i,
@@ -36,7 +32,7 @@ var config = {
         test: /\.jsx?$/,
         include: /src/,
         exclude: /node_modules/,
-        loaders: [ 'babel?stage=0' ]
+        loaders: [ 'babel?stage=0&compact=true' ]
       }
     ]
   }
